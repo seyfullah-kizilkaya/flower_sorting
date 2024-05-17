@@ -1,10 +1,15 @@
 import cv2
-from PIL import Image
 import os
+import numpy as np
+import tensorflow as tf
 
+from tensorflow import keras
+from matplotlib import pyplot as plt
+from PIL import Image
 
-
-data_dir = 'model'
+#veriyi okuma
+data_dir = 'data'
+data_dir1 = 'C:/Users/ASUSS/Desktop/proje/cıcek_sınıflama/data'
 data_list = os.listdir(os.path.join(data_dir))
 #print(data_list)
 for image_class in os.listdir(data_dir):
@@ -18,5 +23,8 @@ for image_class in os.listdir(data_dir):
                 os.remove(image_path)
         except Exception as e:
             print('Issue with image {}'.format(image_path))
-
-
+# veriyi yükleme
+data = tf.keras.utils.image_dataset_from_directory('data')
+data_iterator = model.as_numpy_iterator()
+batch = data_iterator.next()
+print(len(batch))
