@@ -110,4 +110,3 @@ plt.plot(epochs_range, val_loss, label='Doğrulama kaybı (Validation Loss)')
 plt.legend(loc='upper right')
 plt.title('Training and Validation Loss')
 plt.show()
-"""sonnnnnnnnnnn"""
